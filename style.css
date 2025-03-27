@@ -1,0 +1,61 @@
+body {
+    background-color: aliceblue;
+    font-family: Arial, Helvetica, sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+}
+
+.rotate {
+    position: relative;
+    width: 200px;
+    height: 200px;
+    /* додаємо дно блоку щоб 3д куб міг обертатись */
+    transform-style: preserve-3d;
+    /* задаємо початкову анімацію */
+    animation: none;
+}
+
+.position {
+    position: absolute;
+    background: radial-gradient(rgb(0, 0, 0, 0.7), red);
+    /* другий варіант куба     background-color: none;  border: 2px solid black; */
+    height: 200px;
+    color: white;
+    width: 200px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.but {
+    position: absolute;
+    margin-top:500px;
+    padding: 15px;
+    font-size: 16px;
+    cursor: pointer;
+}
+input{
+    padding: 5px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/*складаємо куб на 2д сторінці  */
+.front { transform: rotateY(0deg) translateZ(100px); }
+.back { transform: rotateY(180deg) translateZ(100px); }
+.left { transform: rotateY(-90deg) translateZ(100px); }
+.right { transform: rotateY(90deg) translateZ(100px); }
+.top { transform: rotateX(90deg) translateZ(100px); }
+.bottom { transform: rotateX(-90deg) translateZ(100px); }
+/* додаємо анімацію яка відповідає за прокручування з 0 до 360  по ігрику та іксу */
+@keyframes rotate {
+    0% {
+        transform: rotateX(0deg) rotateY(0deg);
+    }
+    100% {
+        transform: rotateX(360deg) rotateY(360deg);
+    }
+}
